@@ -63,7 +63,8 @@
     </div>
   </div>    
     <script type="text/javascript" src="cordova.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="js/framework7.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
     <script>
@@ -74,16 +75,16 @@
             var regId = $("#regId").val();
            
             $.ajax({
-                url:'http://desde.260mb.net/usuario.php'+ '?_=' + jQuery.now(),
+                url:'http://desde.260mb.net/usuario.php?ckattempt=2',
                 type: 'GET',
                 data: {op:'reg', name:name, email:email, regId:regId},
                 dataType : 'jsonp',
-                jsonp: false,
-                cache : false,
-                jsonpCallback: "callback", 
-                contentType: "application/json; charset=utf-8",
-                jsonp: 'callback',
-                //crossDomain: true,
+//                jsonp: false,
+                cache : true,
+//                jsonpCallback: "callback", 
+//                contentType: "application/json; charset=utf-8",
+//                jsonp: 'callback',
+                crossDomain: true,
 			success: function(data) {
 				if(data.estatus == true){
                     console.log(data.mensaje);
